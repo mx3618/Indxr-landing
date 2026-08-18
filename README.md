@@ -109,7 +109,7 @@ This project is designed so agents spend **context on answers, not on raw matche
 
 ### Bootstrapping time: understanding the whole codebase
 
-**▶ [Watch the demo (8s)](media/demo-index-under-1min.webm)** — full structural index of the codebase, completed in under a minute.
+**▶ [Watch the demo (8s)](media/demo-index-under-1min.mp4)** — full structural index of the codebase, completed in under a minute.
 
 - **This project's tools:** a full structural index of the 440K-line codebase (433 files, 11,402 functions) completes in **under a minute** — after that, every question about the repo is a millisecond lookup.
 - **The normal way** (reading the files by hand): the maintainer's own test took **~10 minutes** just to build a rough mental map — and that map is lost the moment you leave the session.
