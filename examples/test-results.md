@@ -2,6 +2,15 @@
 
 All figures below are read from the project's own tracking records — `benchmarks.jsonl`, `metrics.jsonl`, the changelog, and session records. Nothing is extrapolated. Raw excerpts are in [recorded-evidence.md](recorded-evidence.md).
 
+## Why this beats "trust me, it works"
+
+| Normal way | This project |
+|---|---|
+| "It builds on my machine" | every perf/quality claim is a **recorded, timestamped entry** with a before/after pair |
+| Numbers get lost between releases | `benchmarks.jsonl` / `metrics.jsonl` — append-only, seq-ordered, MCP-queryable |
+| Perf wins are anecdotes ("feels faster") | measured pairs: 52,897 ms → 7,531 ms; 1,472.4 µs → 0.01 µs |
+| Test results live in CI logs | session records + CHANGELOG Verification sections, versioned |
+
 ## Test suite
 
 | Result | Value | Recorded |

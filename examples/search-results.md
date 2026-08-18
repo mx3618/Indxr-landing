@@ -2,6 +2,16 @@
 
 Output shapes produced by the search & analysis tools (illustrative data).
 
+## Why this beats the normal way
+
+| Question | Normal way | This tool |
+|---|---|---|
+| Where is `add_tag` defined? | `grep -rn "add_tag"` → open 5 files | `lookup_symbol` → one line: file + line + signature |
+| Who calls it? | grep again, open each file, read bodies | `get_callers` → 3 call sites, listed |
+| What flows through `Note`? | read every struct + every use | `get_type_flow` → producers + consumers, both directions |
+| Find code about *persisting* | try keywords: save/write/store... | `find` (semantic) → ranked results by relevance score |
+| Is this tested? | grep `test_` in the test dir | `get_related_tests` → matched tests with confidence |
+
 ## 1. Symbol lookup — `lookup_symbol` / `find`
 
 ```

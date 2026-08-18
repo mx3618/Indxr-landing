@@ -1,5 +1,13 @@
 # Example: call graph & impact analysis
 
+## Why this beats the normal way
+
+| Task | Normal way | This tool |
+|---|---|---|
+| See who calls whom | open every file, read every body, draw it by hand | `get_call_graph` → Mermaid graph with line-level edges |
+| Estimate the blast radius of a change | "I think it's used here and here..." then the full test run fails | `get_impact` → direct + transitive dependents, affected tests, before you edit |
+| Review what a PR structurally changed | scroll through the whole diff | `get_diff_summary` → declaration-level + / ~ / − changes |
+
 ## 1. `get_call_graph` (Mermaid output)
 
 ```

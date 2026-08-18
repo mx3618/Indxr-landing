@@ -2,6 +2,8 @@
 
 Excerpts are copied **verbatim** from the project's tracking store and verified through the vecto-indxr MCP server (`track_metric list` / `benchmark_list`, 2026-08-18). Every entry carries its own timestamp and sequence id.
 
+> **Why record instead of remember?** Normal teams rely on release notes written weeks after the fact. This project's numbers are captured **at the moment of measurement** — append-only, timestamped, and queryable by any agent via MCP (`track_metric`, `benchmark_list`). The excerpts below are the raw proof of [test-results.md](test-results.md).
+
 ## 1. `benchmarks.jsonl` — performance before/after pairs
 
 ```json

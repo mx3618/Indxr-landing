@@ -8,6 +8,15 @@
 
 The full file contains a directory tree, an API surface listing, and a hotspot report. This is an annotated excerpt for a small toy project:
 
+## Why this beats the normal way
+
+| Task | Normal way | `INDEX.md` |
+|---|---|---|
+| Orient in an unfamiliar repo | open files one by one, build a mental map | tree + API surface + hotspots on one page |
+| Find the public API of a module | read every file, note every `pub` | `## API Surface` table with signatures |
+| Find what's complex / risky | vibes, or long review meetings | `## Hotspots` ranked by cyclomatic complexity |
+| Onboard a new dev / agent | "start here, then read that..." | the index *is* the map — point at it |
+
 ## Directory Structure
 
 ```

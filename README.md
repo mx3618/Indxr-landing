@@ -59,6 +59,21 @@ The project is **developed largely with GLM-5.2 and GLM-5.3** — it is built by
 
 ---
 
+## Why it's different from the normal way
+
+| Task | Normal way (grep + opening files) | Vecto-Indxr |
+|------|-----------------------------------|-------------|
+| Find where a symbol is defined | `grep -rn` across the repo, open every hit | `find` → exact declaration + signature, instant |
+| Understand a function | open the file, read the body, chase callers by hand | `explain_symbol` → signature + docs + relationships **without reading source** |
+| Who calls this? | grep + manually open every candidate file | `get_callers` → exact call sites with file:line |
+| What tests cover this? | guess from names, grep test files | `get_related_tests` → 3-layer discovery (defining file → names → body refs) |
+| Will my change break something? | mental model, then run the full suite | `get_impact` → blast radius: affected files + tests *before* editing |
+| How healthy is the repo? | vibes, broken CI, slow reviews | `get_health` → complexity, hotspots, doc coverage, test counts |
+| Keep the agent's context small | dump whole files into the prompt | surgical lookups — millisecond, token-efficient |
+| Navigate a 440K-line repo | Ctrl+F and hope | one structural index, every query is a lookup |
+
+The same questions, answered in **milliseconds instead of minutes** — and for AI agents, measured in **tokens saved, not just time saved**.
+
 ## Quick tour (examples)
 
 Real output shapes produced by the tool (data is illustrative):
@@ -70,6 +85,7 @@ Real output shapes produced by the tool (data is illustrative):
 - [`examples/changelog.md`](examples/changelog.md) — auto-drafted changelog from git history
 - [`examples/test-results.md`](examples/test-results.md) — **real recorded test results** (suite, perf, security)
 - [`examples/recorded-evidence.md`](examples/recorded-evidence.md) — verbatim excerpts from the tracking store
+- [`examples/live-tool-tests.md`](examples/live-tool-tests.md) — **live runs** of find / search / analysis tools against a 440K-line codebase
 
 ---
 
