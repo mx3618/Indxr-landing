@@ -109,8 +109,10 @@ This project is designed so agents spend **context on answers, not on raw matche
 
 ### Bootstrapping time: understanding the whole codebase
 
+<a href="media/demo-index-under-1min.mp4"><img src="media/demo-poster.png" alt="Watch the demo — indexing a 440K-line codebase in under a minute" width="640"></a>
+
 <video controls width="640" src="https://github.com/mx3618/Indxr-landing/raw/main/media/demo-index-under-1min.mp4"></video>
-*Full structural index of the codebase, completed in under a minute. [Open in new tab](media/demo-index-under-1min.mp4)*
+*Full structural index of the codebase, completed in under a minute. Click the thumbnail to play — or [open the video](media/demo-index-under-1min.mp4) in a new tab.*
 
 - **This project's tools:** a full structural index of the 440K-line codebase (433 files, 11,402 functions) completes in **under a minute** — after that, every question about the repo is a millisecond lookup.
 - **The normal way** (reading the files by hand): the maintainer's own test took **~10 minutes** just to build a rough mental map — and that map is lost the moment you leave the session.
