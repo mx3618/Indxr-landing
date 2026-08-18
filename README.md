@@ -4,7 +4,7 @@
 
 Vecto-Indxr builds a **declaration-level structural index** of a codebase — files, symbols, signatures, call edges — and exposes it to AI agents through a **MCP server (180+ tools)** and a **CLI**. It answers questions like *"what tests cover `parse_files`?"*, *"who calls this function?"*, or *"how would renaming this symbol break my code?"* in milliseconds.
 
-The source repository is **private**. This page is the public face: features, activity, and runnable-looking examples of what the tool produces.
+The project is **developed largely with GLM-5.2 and GLM-5.3** — it is built by the same kind of coding agents it serves. The source repository is **private**. This page is the public face: features, activity, and runnable-looking examples of what the tool produces.
 
 ---
 
@@ -95,6 +95,10 @@ Every number below comes from the project's own tracking store (`benchmarks.json
 ## Tech stack
 
 Rust 1.85+ · MCP (Model Context Protocol) · tree-sitter · rayon · tokio · serde
+
+## Built with
+
+This project is developed largely using **GLM-5.2 and GLM-5.3** — the codebase, experiments, and benchmarks on this page were produced with Z.ai models driving the development workflow.
 
 ---
 
