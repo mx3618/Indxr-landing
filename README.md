@@ -11,10 +11,13 @@ The project is **developed largely with GLM-5.2 and GLM-5.3** — it is built by
 ## Table of contents
 
 - [Feature overview](#feature-overview)
+- [Why it's different](#why-its-different-from-the-normal-way)
+- [GLM-5.3 demo & token grant plan](#glm-53-demo--token-grant-plan)
 - [Quick tour (examples)](#quick-tour-examples)
-- [Benchmarks](#benchmarks)
+- [Benchmarks (recorded, real)](#benchmarks-recorded-real)
 - [CLI & MCP surface](#cli--mcp-surface)
 - [Tech stack](#tech-stack)
+- [Built with](#built-with)
 - [Activity](#activity)
 - [FAQ](#faq)
 
@@ -73,6 +76,12 @@ The project is **developed largely with GLM-5.2 and GLM-5.3** — it is built by
 | Navigate a 440K-line repo | Ctrl+F and hope | one structural index, every query is a lookup |
 
 The same questions, answered in **milliseconds instead of minutes** — and for AI agents, measured in **tokens saved, not just time saved**.
+
+## GLM-5.3 demo & token grant plan
+
+This project is built largely with **GLM-5.2 and GLM-5.3**, and it amplifies GLM-5.3's headline strengths (Terminal-Bench #1, token efficiency, 1M-token context, cyber defense). The complete demo plan, token-grant roadmap (5 public experiments), and the "why this beats a typical submission" comparison are in:
+
+**→ [GLM-5.3-demo-plan.md](GLM-5.3-demo-plan.md)**
 
 ## Quick tour (examples)
 
