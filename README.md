@@ -107,6 +107,19 @@ This project is designed so agents spend **context on answers, not on raw matche
 
 **A typical 3-question session** (define + callers + tests): normal way ≈ **6,700 tokens** of context vs tools ≈ **430 tokens** → **~94% fewer tokens**, delivered as structured data instead of raw lines to filter. That is the design goal: *context in, answers out* — which is exactly what a token-efficient model like GLM-5.3 (34.5% task-completion at ~75K output tokens) rewards.
 
+### Bootstrapping time: understanding the whole codebase
+
+- **This project's tools:** a full structural index of the 440K-line codebase (433 files, 11,402 functions) completes in **under a minute** — after that, every question about the repo is a millisecond lookup.
+- **The normal way** (reading the files by hand): the maintainer's own test took **~10 minutes** just to build a rough mental map — and that map is lost the moment you leave the session.
+
+| | Indexed (this project) | Manual reading |
+|---|---|---|
+| 440K-line codebase, first pass | **< 1 minute** (maintainer-measured) | **~10 minutes** (maintainer's own test) |
+| Every question after that | **ms** (index lookup) | re-scan + re-read (minutes) |
+| Does the map persist? | yes — `INDEX.md` + index files, reusable by any agent | no — mental model, lost per session |
+
+*Maintainer-measured observation, 2026-08-18 — separate from the recorded tracking-store figures above.*
+
 ## GLM-5.3 demo & token grant plan
 
 This project is built largely with **GLM-5.2 and GLM-5.3**, and it amplifies GLM-5.3's headline strengths (Terminal-Bench #1, token efficiency, 1M-token context, cyber defense). The complete demo plan, token-grant roadmap (5 public experiments), and the "why this beats a typical submission" comparison are in:
