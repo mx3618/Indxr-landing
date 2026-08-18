@@ -77,6 +77,21 @@ The project is **developed largely with GLM-5.2 and GLM-5.3** — it is built by
 
 The same questions, answered in **milliseconds instead of minutes** — and for AI agents, measured in **tokens saved, not just time saved**.
 
+### Measured: speed & precision (2026-08-18, same 440K-line repo)
+
+"Normal way" = real `rg` commands with measured wall time and full hit counts. "Tool way" = live MCP runs (full outputs in [examples/live-tool-tests.md](examples/live-tool-tests.md)). Precision = real answers ÷ raw hits, computed from the counts below.
+
+| Task | Normal way — measured | Indxr MCP tool — live run | Speed (time to *correct* answer) | Precision |
+|---|---|---|---|---|
+| Find definition of `parse_files` | `rg "fn parse_files"` · 6 ms scan · **5 hits, 1 real def** (4 noise: comment, string, `parse_files_at_ref`, test fn) | `find` (mode=symbol) · indexed lookup · **4 matches, def first, 0 noise** | 6 ms + open/filter 4 noise hits ≈ seconds | **20% → 100%** |
+| Who calls `parse_files`? | `rg "parse_files"` · 9 ms scan · **77 hits: 14 real calls, 56 noise** (docs, strings, cfg(test)) | `get_callers` · 10–50 ms (ReferenceIndex) · **6 exact sites with file:line, 0 noise** | 9 ms + read 56 noise lines | **18% → 100%** |
+| Find code about "caching analysis results" | `rg -i "caching\|analysis"` · 9 ms · **116 files, unranked** | `search_semantic` (BM25) · **101 candidates ranked** (0.555 / 0.546 / 0.539) | flat list vs 1 ranked answer | **no ranking → relevance-ranked** |
+| What tests cover `parse_files`? | name-guessing grep · 3 ms · **12 hits, no confidence** | `get_related_tests` · **6 tests with confidence** (`defining_file` / `body_reference`) | guess + verify vs direct answer | **guess → 3-layer discovery** |
+| How healthy is the codebase? | no standard method (vibes / CI status) | `get_health` · 1 call · **11,402 fns / 6,279 tests / 971 hotspots / docs 40.2%** | — | **quantified vs vibes** |
+| What breaks if I change `parse_files`? | mental model + run full suite (minutes) | `get_impact` · **21 files, 47 transitive dependents, 32 affected tests** | trial-and-error vs prediction | **predicted before editing** |
+
+The raw `rg` scan itself is fast (3–9 ms) — the difference is **precision**: 77 raw lines (56 noise) vs 6 exact answers, and what the agent must read afterward. At agent scale that is measured in tokens: **77 lines of context vs 6**.
+
 ## GLM-5.3 demo & token grant plan
 
 This project is built largely with **GLM-5.2 and GLM-5.3**, and it amplifies GLM-5.3's headline strengths (Terminal-Bench #1, token efficiency, 1M-token context, cyber defense). The complete demo plan, token-grant roadmap (5 public experiments), and the "why this beats a typical submission" comparison are in:
